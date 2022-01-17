@@ -95,7 +95,7 @@ std::ostream& operator<<(std::ostream& os, const Bild& image)
             uint8_t brightness = image.pixels[y * image.width + x];
 
             // Map the pixel brightness (which is in the interval [0, 255]) to the ascii chart length
-            uint8_t asciiMapIndex = static_cast<uint8_t>(brightness * asciiBrightnessMap.length() / 255);
+            uint8_t asciiMapIndex = static_cast<uint8_t>(brightness * (asciiBrightnessMap.length() - 1) / 255);
             lineBuffer << asciiBrightnessMap[asciiMapIndex];
         }
         
