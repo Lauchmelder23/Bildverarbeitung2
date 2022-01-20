@@ -2,7 +2,7 @@
  * Reads a PGM file and performs edge detection, then writes the result to disk
  */
 #include <iostream>
-#include "Bild.hpp"
+#include "bild.hpp"
 
 int main(int argc, char** argv)
 {

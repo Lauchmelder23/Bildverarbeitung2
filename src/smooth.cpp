@@ -2,7 +2,7 @@
  * Reads a PGM image and smooths it by some amount, then writes it back to disk
  */
 #include <iostream>
-#include "Bild.hpp"
+#include "bild.hpp"
 
 int main(int argc, char** argv)
 {

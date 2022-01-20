@@ -1,16 +1,19 @@
-default: imageviewer smooth edgedetect
+CC = g++
+CCFLAGS = -std=c++14 -Wall
 
-imageviewer: folder src/Bild.cpp src/ImageViewer.cpp
-	clang++ -o build/imageviewer src/Bild.cpp src/ImageViewer.cpp -I include -std=c++14 -Weverything -Wno-c++98-compat
+all: bin/imageviewer bin/smooth bin/edgedetect
 
-smooth: folder src/Bild.cpp src/Smooth.cpp
-	clang++ -o build/smooth src/Bild.cpp src/Smooth.cpp -I include -std=c++14 -Weverything -Wno-c++98-compat
+imageviewer: bin/imageviewer
+smooth: bin/smooth
+edgedetect: bin/edgedetect
 
-edgedetect: folder src/Bild.cpp src/EdgeDetect.cpp
-	clang++ -o build/edetect src/Bild.cpp src/EdgeDetect.cpp -I include -std=c++14 -Weverything -Wno-c++98-compat
+%.o: src/%.cpp include/bild.hpp
+	@mkdir -p $(@D)
+	$(CC) -Iinclude -c $< -o $@ $(CCFLAGS)
 
-folder:
-	mkdir -p build
+bin/%: %.o bild.o
+	@mkdir -p $(@D)
+	$(CC) $^ -o $@
 
 clean:
-	rm -rf build
+	@rm -rf bin 

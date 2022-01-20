@@ -2,7 +2,7 @@
  * Displays a given PGM image in the console using ASCII characters
  */
 #include <iostream>
-#include "Bild.hpp"
+#include "bild.hpp"
 
 int main(int argc, char** argv)
 {

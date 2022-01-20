@@ -1,4 +1,4 @@
-#include "Bild.hpp"
+#include "bild.hpp"
 
 #include <iostream>
 #include <sstream>
