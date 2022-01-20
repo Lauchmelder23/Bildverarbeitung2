@@ -14,6 +14,10 @@
 class Bild
 {
 public:
+    // ASCII characters used when printing the image to stdcout
+    static const std::string asciiBrightnessMap;
+
+public:
     /**
      * @brief Creates a new empty picture.
      * 

@@ -3,6 +3,8 @@
 #include <iostream>
 #include <sstream>
 
+const std::string Bild::asciiBrightnessMap = ".'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$";
+
 std::ifstream& operator>>(std::ifstream& file, Bild& image)
 {
     std::string lineContent;
@@ -85,7 +87,7 @@ std::ofstream& operator<<(std::ofstream& file, const Bild& image)
 
 std::ostream& operator<<(std::ostream& os, const Bild& image)
 {
-    std::string asciiBrightnessMap(".'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$");
+    
 
     for(uint16_t y = 0; y < image.height; y++)
     {
@@ -95,8 +97,8 @@ std::ostream& operator<<(std::ostream& os, const Bild& image)
             uint8_t brightness = image.pixels[y * image.width + x];
 
             // Map the pixel brightness (which is in the interval [0, 255]) to the ascii chart length
-            uint8_t asciiMapIndex = static_cast<uint8_t>(brightness * (asciiBrightnessMap.length() - 1) / 255);
-            lineBuffer << asciiBrightnessMap[asciiMapIndex];
+            uint8_t asciiMapIndex = static_cast<uint8_t>(brightness * (Bild::asciiBrightnessMap.length() - 1) / 255);
+            lineBuffer << Bild::asciiBrightnessMap[asciiMapIndex];
         }
         
         std::cout << lineBuffer.str() << std::endl;
