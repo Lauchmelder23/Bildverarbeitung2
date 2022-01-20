@@ -1,14 +1,7 @@
-Um lediglich die Bild.cpp zu kompilieren:
-    clang++ -c src/imageviewer src/Bild.cpp -I include -std=c++14 -Weverything -Wno-c++98-compat
+Methode 1 (empfohlen):
+    make
 
-Alle commands sollen im root Verzeichnis des Projekts ausgeführt werden, und es
-wird davon ausgegangen dass der Unterordner "build" existiert
-
-Um den ImageViewer zu kompilieren:
-    clang++ -o build/imageviewer src/Bild.cpp src/ImageViewer.cpp -I include -std=c++14 -Weverything -Wno-c++98-compat
-
-Um das Glättungs Programm zu kompilieren:
-    clang++ -o build/smooth src/Bild.cpp src/Smooth.cpp -I include -std=c++14 -Weverything -Wno-c++98-compat
-
-Um das Kantenerkennungs Programm zu kompilieren:
-    clang++ -o build/edetect src/Bild.cpp src/EdgeDetect.cpp -I include -std=c++14 -Weverything -Wno-c++98-compat
+Methode 2:
+    g++ -Iinclude src/bild.cpp src/imageviewer.cpp -o imageviewer -std=c++14 -Wall
+    g++ -Iinclude src/bild.cpp src/smooth.cpp -o smooth -std=c++14 -Wall
+    g++ -Iinclude src/bild.cpp src/edgedetect.cpp -o edgedetect -std=c++14 -Wall

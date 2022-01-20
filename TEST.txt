@@ -2,27 +2,27 @@ Um das Errorhandling zu testen habe ich zwei Dateien im Verzeichnis res/broken/
 bereitgestellt welche fehlerhafte PGM Dateien beinhalten:
 
 * wrong_signature.pgm beinhaltet P5 statt P2.
-  Führt man z.B. "build/imageviewer res/broken/wrong_signature.pgm" aus, sollte das Programm
+  Führt man z.B. "imageviewer res/broken/wrong_signature.pgm" aus, sollte das Programm
   "Missing/Wrong PGM magic number." ausgeben und sich beenden.
 
 * wrong_dimensions.pgm gibt eine falsche Größe für das Bild an. Es sind nicht genug Daten vorhanden für die angegebenen Bilddimensionen
-  Führt man z.B. "build/imageviewer res/broken/wrong_dimensions.pgm" aus, sollte das Programm
+  Führt man z.B. "imageviewer res/broken/wrong_dimensions.pgm" aus, sollte das Programm
   "Amount of image data doesn't match image dimensions. Expected..." ausgeben und ich beenden.
 
 
-Ansonsten können die Programme "build/smooth" und "build/edetect" benutzt werden um jeweils die 
+Ansonsten können die Programme "smooth" und "edgedetect" benutzt werden um jeweils die 
 Glättungs- und Kantenbildfunktion zu testen. Beide Programme verlangen als erstes Commandline Argument
 den Namen der Bilddatei die verändert werden soll.
 
 Ich habe einige Bilder im Ordner res/ bereitgestellt um diese Funktionen zu testen.
 
-build/smooth res/f14.ascii.pgm
-build/smooth res/mountain.ascii.pgm
-build/smooth res/fractal_tree.ascii.pgm
+smooth res/f14.ascii.pgm
+smooth res/mountain.ascii.pgm
+smooth res/fractal_tree.ascii.pgm
 
-build/edetect res/f14.ascii.pgm
-build/edetect res/mountain.ascii.pgm
-build/edetect res/fractal_tree.ascii.pgm
+edgedetect res/f14.ascii.pgm
+edgedetect res/mountain.ascii.pgm
+edgedetect res/fractal_tree.ascii.pgm
 
 Die modifizierten Bilder werden in den Dateien originalerName_modified.pgm gespeichert, und können anschließend
 in GIMP o.Ä. Programmen inspiziert werden
