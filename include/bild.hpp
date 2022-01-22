@@ -14,7 +14,7 @@
 class Bild
 {
 public:
-    // ASCII characters used when printing the image to stdcout
+    // ASCII characters used when printing the image to stdout
     static const std::string asciiBrightnessMap;
 
 public:
@@ -51,7 +51,7 @@ public:
      * @brief Renders the image to the console
      * 
      * Draws the image in the console using ascii characters.
-     * Das war zwar in der Aufgabe nicht verlangt aber ich wollt schon gern die Bilder sehen
+     * Das war zwar in der Aufgabe nicht verlangt aber ich wollte gern die Bilder sehen
      * 
      * @param os Output stream to draw to
      * @param image Image to draw

@@ -71,6 +71,8 @@ std::ofstream& operator<<(std::ofstream& file, const Bild& image)
     for(uint8_t pixel : image.pixels)
     {
         uint32_t value = static_cast<uint32_t>(pixel);
+        // If the current line would become longer than 70 characters, write the line to
+        // the file, insert a newline and clear the line
         if(line.size() + std::to_string(value).length() > 70)
         {
             file << line << std::endl;
@@ -80,6 +82,7 @@ std::ofstream& operator<<(std::ofstream& file, const Bild& image)
         line += std::to_string(value) + " ";
     }
 
+    // Write remaining lines to file
     file << line << std::endl;
 
     return file;
@@ -87,8 +90,7 @@ std::ofstream& operator<<(std::ofstream& file, const Bild& image)
 
 std::ostream& operator<<(std::ostream& os, const Bild& image)
 {
-    
-
+    // Loop over pixels in image
     for(uint16_t y = 0; y < image.height; y++)
     {
         std::stringstream lineBuffer;
@@ -100,7 +102,7 @@ std::ostream& operator<<(std::ostream& os, const Bild& image)
             uint8_t asciiMapIndex = static_cast<uint8_t>(brightness * (Bild::asciiBrightnessMap.length() - 1) / 255);
             lineBuffer << Bild::asciiBrightnessMap[asciiMapIndex];
         }
-        
+
         std::cout << lineBuffer.str() << std::endl;
     }
 
