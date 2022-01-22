@@ -17,4 +17,5 @@ bin/%: %.o bild.o
 	$(CC) $^ -o $@
 
 clean:
-	@rm -rf bin 
+	@rm -rf bin
+
