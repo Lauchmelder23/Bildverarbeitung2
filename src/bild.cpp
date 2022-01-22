@@ -5,6 +5,12 @@
 
 const std::string Bild::asciiBrightnessMap = ".'`^\",:;Il!i><~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$";
 
+Bild::Bild(uint32_t width, uint32_t height, const std::string& description) :
+    width(width), height(height), description(description)
+{
+    pixels.resize(width * height);
+}
+
 std::ifstream& operator>>(std::ifstream& file, Bild& image)
 {
     std::string lineContent;
@@ -111,12 +117,8 @@ std::ostream& operator<<(std::ostream& os, const Bild& image)
 
 Bild Bild::Geglaettet() const
 {
-    // Create new image and copy metadata
-    Bild smoothedImage;
-    smoothedImage.width = width;
-    smoothedImage.height = height;
-    smoothedImage.description = description + " smoothed";
-    smoothedImage.pixels.resize(pixels.size()); // Resize the pixel array to match the image dimensions
+    // Create new image with same dimensions
+    Bild smoothedImage(width, height, description + " smoothed");
 
     // Apply smoothing
     for(uint32_t y = 0; y < smoothedImage.height; y++)
@@ -148,11 +150,7 @@ Bild Bild::Geglaettet() const
 Bild Bild::Kantenbild() const
 {
     // Create new image and copy metadata
-    Bild modifiedImage;
-    modifiedImage.width = width;
-    modifiedImage.height = height;
-    modifiedImage.description = description + " edged";
-    modifiedImage.pixels.resize(pixels.size()); // Resize the pixel array to match the image dimensions
+    Bild modifiedImage(width, height, description + " edged");
 
     // Apply edge detection
     for(uint32_t y = 0; y < modifiedImage.height; y++)

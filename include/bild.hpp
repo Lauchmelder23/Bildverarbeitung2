@@ -26,6 +26,27 @@ public:
     Bild() = default;
 
     /**
+     * @brief Construct a new empty picture with meta data
+     * 
+     * The pixel buffer will be empty, but the meta data (width, height, description)
+     * will be set, and the pixel buffer will be resized to match the dimensions
+     * 
+     * @param width Width of the image
+     * @param height Height of the image
+     * @param description Description of the image
+     */
+    Bild(uint32_t width, uint32_t height, const std::string& description);
+
+    /**
+     * @brief Copy an image
+     * 
+     * The copy will copy the image data from the original image to a new buffer
+     * 
+     * @param other The image to copy from
+     */
+    Bild(const Bild& other) = default;
+
+    /**
      * @brief Load an image
      * 
      * Reads a file containing image data and populates the pixel array
