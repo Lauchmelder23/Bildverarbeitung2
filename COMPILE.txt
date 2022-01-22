@@ -1,7 +1,0 @@
-Methode 1 (empfohlen):
-    make
-
-Methode 2:
-    g++ -Iinclude src/bild.cpp src/imageviewer.cpp -o imageviewer -std=c++14 -Wall
-    g++ -Iinclude src/bild.cpp src/smooth.cpp -o smooth -std=c++14 -Wall
-    g++ -Iinclude src/bild.cpp src/edgedetect.cpp -o edgedetect -std=c++14 -Wall
