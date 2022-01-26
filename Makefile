@@ -5,12 +5,8 @@ all: bin/imageviewer bin/smooth bin/edgedetect
 
 rebuild: clean all
 
-imageviewer: bin/imageviewer
-smooth: bin/smooth
-edgedetect: bin/edgedetect
-
-%.o: src/%.cpp include/bild.hpp
-	$(CC) -Iinclude -c $< -o $@ $(CCFLAGS)
+%.o: %.cpp bild.hpp
+	$(CC) -c $< -o $@ $(CCFLAGS)
 
 bin/%: %.o bild.o
 	@mkdir -p $(@D)
